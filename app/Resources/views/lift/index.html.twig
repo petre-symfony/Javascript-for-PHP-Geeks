@@ -59,3 +59,12 @@
     </div>
   </div>
 {% endblock %}
+{% block javascripts %}
+  {{ parent() }}
+  
+  <script>
+    $('.js-delete-rep-log').on('click', function(){
+      console.log('todo delete!');
+    });
+  </script>
+{% endblock %}
