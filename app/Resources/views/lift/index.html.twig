@@ -78,6 +78,8 @@
           .removeClass('fa-trash')
           .addClass('fa-spinner')
           .addClass('fa-spin');
+        
+        var deleteUrl = $(this).data('url');
       });
       
       $table.find('tbody tr').on('click', function(){
