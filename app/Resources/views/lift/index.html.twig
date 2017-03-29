@@ -86,15 +86,16 @@
       handleRepLogDelete: function(e){
         e.preventDefault();
       
-        $(this).addClass('text-danger');
-        $(this)
+        var $link = $(e.currentTarget);
+        $link.addClass('text-danger');
+        $link
           .find('.fa')
           .removeClass('fa-trash')
           .addClass('fa-spinner')
           .addClass('fa-spin');
         
-        var deleteUrl = $(this).data('url');
-        var $row = $(this).closest('tr');
+        var deleteUrl = $link.data('url');
+        var $row = $link.closest('tr');
         $.ajax({
           url: deleteUrl,
           method: 'DELETE',
