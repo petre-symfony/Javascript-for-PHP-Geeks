@@ -98,7 +98,7 @@
           method: 'DELETE',
           success: function(){
             $row.fadeOut('normal', function(){
-              $row.remove();
+              $(this).remove();
               RepLogApp.updateTotalWeightLifted();
             });
           }
