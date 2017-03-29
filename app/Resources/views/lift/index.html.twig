@@ -80,12 +80,12 @@
           .addClass('fa-spin');
         
         var deleteUrl = $(this).data('url');
-        
+        var $row = $(this).closest('tr');
         $.ajax({
           url: deleteUrl,
           method: 'DELETE',
           success: function(){
-            
+            $row.fadeOut();  
           }
         });
       });
