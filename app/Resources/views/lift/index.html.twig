@@ -93,14 +93,14 @@
         
         var deleteUrl = $(this).data('url');
         var $row = $(this).closest('tr');
-        var $totalWeightContainer = RepLogApp.$wrapper.find('.js-total-weight');
-        var newWeight = $totalWeightContainer.html() - $row.data('weight');
         $.ajax({
           url: deleteUrl,
           method: 'DELETE',
           success: function(){
-            $row.fadeOut();
-            $totalWeightContainer.html(newWeight);
+            $row.fadeOut('normal', function(){
+              $row.remove();
+              RepLogApp.updateTotalWeightLifted();
+            });
           }
         }); 
       },
