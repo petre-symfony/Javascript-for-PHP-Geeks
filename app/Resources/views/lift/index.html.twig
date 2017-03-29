@@ -70,15 +70,10 @@
       initialize: function($wrapper){
         this.$wrapper = $wrapper; 
         
-        this.$wrapper.find('.js-delete-rep-log').on('click', this.handleRepLogDelete);
-        this.$wrapper.find('tbody tr').on('click', this.handleRowClick);
-        
-        var newThis = {cat: 'meow', dog: 'woof'};
-        var boundWhatIsThis = this.whatIsThis.bind(this);
-        boundWhatIsThis.call(newThis, 'hello');
-      },
-      whatIsThis: function(greeting){
-        console.log(this, greeting);
+        this.$wrapper.find('.js-delete-rep-log')
+          .on('click', this.handleRepLogDelete.bind(this));
+        this.$wrapper.find('tbody tr')
+          .on('click', this.handleRowClick.bind(this));
       },
       updateTotalWeightLifted: function(){
         var totalWeight = 0;
