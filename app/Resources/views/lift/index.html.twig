@@ -73,11 +73,7 @@
         this.$wrapper.find('.js-delete-rep-log').on('click', this.handleRepLogDelete);
         this.$wrapper.find('tbody tr').on('click', this.handleRowClick);
       },
-    };
-    $(document).ready(function(){
-      var $table = $('.js-rep-log-table');
-      
-      $table.find('.js-delete-rep-log').on('click', function(e){
+      handleRepLogDelete: function(e){
         e.preventDefault();
       
         $(this).addClass('text-danger');
@@ -98,12 +94,15 @@
             $row.fadeOut();
             $totalWeightContainer.html(newWeight);
           }
-        });
-      });
+        }); 
+      },
+      handleRowClick: function(){
+        console.log('row clicked!');  
+      }
+    };
+    $(document).ready(function(){
+      var $table = $('.js-rep-log-table');
       
-      $table.find('tbody tr').on('click', function(){
-        console.log('row clicked!');
-      })
     })  
   </script>
 {% endblock %}
