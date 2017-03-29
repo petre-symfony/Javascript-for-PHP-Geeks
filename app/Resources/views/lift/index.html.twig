@@ -70,8 +70,12 @@
       $table.find('.js-delete-rep-log').on('click', function(e){
         e.preventDefault();
       
-        $(e.target).addClass('text-danger');
-        console.log(e.currentTarget === this);
+        $(this).addClass('text-danger');
+        $(this)
+          .find('.fa')
+          .removeClass('fa-trash')
+          .addClass('fa-spinner')
+          .addClass('fa-spin');
       });
       
       $table.find('tbody tr').on('click', function(){
