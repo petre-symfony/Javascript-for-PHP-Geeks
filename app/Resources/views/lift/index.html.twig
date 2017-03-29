@@ -26,7 +26,7 @@
             <td>{{ repLog.reps }}</td>
             <td>{{ repLog.totalWeightLifted }}</td>
             <td>
-              <a href="#" class="js-delete-rep-log">
+              <a href="" class="js-delete-rep-log">
                 <span class="fa fa-trash"></span>
               </a>
             </td>
@@ -68,6 +68,8 @@
       
       $table.find('.js-delete-rep-log').on('click', function(){
         console.log('todo delete!');
+        
+        return false;
       });
       
       $table.find('tbody tr').on('click', function(){
