@@ -72,6 +72,11 @@
         
         this.$wrapper.find('.js-delete-rep-log').on('click', this.handleRepLogDelete);
         this.$wrapper.find('tbody tr').on('click', this.handleRowClick);
+        
+        this.whatIsThis('hello');
+      },
+      whatIsThis: function(greeting){
+        console.log(this, greeting);
       },
       updateTotalWeightLifted: function(){
         var totalWeight = 0;
