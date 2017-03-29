@@ -80,6 +80,14 @@
           .addClass('fa-spin');
         
         var deleteUrl = $(this).data('url');
+        
+        $.ajax({
+          url: deleteUrl,
+          method: 'DELETE',
+          success: function(){
+            
+          }
+        });
       });
       
       $table.find('tbody tr').on('click', function(){
