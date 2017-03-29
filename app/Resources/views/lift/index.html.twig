@@ -67,7 +67,12 @@
   
   <script>
     var RepLogApp = {
-      
+      initialize: function($wrapper){
+        this.$wrapper = $wrapper; 
+        
+        this.$wrapper.find('.js-delete-rep-log').on('click', this.handleRepLogDelete);
+        this.$wrapper.find('tbody tr').on('click', this.handleRowClick);
+      },
     };
     $(document).ready(function(){
       var $table = $('.js-rep-log-table');
