@@ -47,17 +47,17 @@
   /**
   * A "private" object
   */
-  var Helper = {
-    initialize: function($wrapper){
-      this.$wrapper = $wrapper;
-    },
-    calculateTotalWeight: function(){
-      var totalWeight = 0;
-      this.$wrapper.find('tbody tr').each(function(){
-        totalWeight += $(this).data('weight');
-      }); 
+  var Helper = {};
+  Helper.initialize = function($wrapper){
+    this.$wrapper = $wrapper;
+  };
+  Helper.calculateTotalWeight = function(){
+    var totalWeight = 0;
+    this.$wrapper.find('tbody tr').each(function(){
+      totalWeight += $(this).data('weight');
+    }); 
 
-      return totalWeight;
-    }
-  }
+    return totalWeight;
+  };
+  
 })(window, jQuery);
