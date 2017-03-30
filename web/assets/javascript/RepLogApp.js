@@ -1,3 +1,4 @@
+'use strict';
 (function(window, $){
   window.RepLogApp = {
     initialize: function($wrapper){
@@ -46,7 +47,7 @@
   /**
   * A "private" object
   */
-  Helper = {
+  var Helper = {
     initialize: function($wrapper){
       this.$wrapper = $wrapper;
     },
