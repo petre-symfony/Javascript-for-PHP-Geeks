@@ -48,12 +48,16 @@
       e.preventDefault();
       
       var $form = $(e.currentTarget);
+      var $tbody = this.$wrapper.find('tbody');
       $.ajax({
         url: $form.attr('action'),
         method: 'POST',
         data: $form.serialize(),
         success: function(data){
-          $form.closest('.js-new-rep-log-form-wrapper').html(data);  
+          $tbody.append(data);  
+        },
+        error: function(jqXHR){
+          $form.closest('.js-new-rep-log-form-wrapper').html(jqXHR.responseText);
         }
       });
     } 
