@@ -38,8 +38,16 @@ var RepLogApp = {
   },
   handleRowClick: function(){
     console.log('row clicked!');  
+  },  
+};
+
+/**
+* A "private" object
+*/
+var Helper = {
+  initialize: function($wrapper){
+    this.$wrapper = $wrapper;
   },
-  
   _calculateTotalWeight: function(){
     var totalWeight = 0;
     this.$wrapper.find('tbody tr').each(function(){
@@ -48,4 +56,4 @@ var RepLogApp = {
     
     return totalWeight;
   }
-};
+}
