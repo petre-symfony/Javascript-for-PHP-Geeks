@@ -58,7 +58,7 @@
       
       var $form = $(e.currentTarget);
       $.ajax({
-        url: $form.attr('action'),
+        url: $form.data('url'),
         method: 'POST',
         data: $form.serialize(),
         success: function(data){
