@@ -64,7 +64,7 @@
       $.ajax({
         url: $form.data('url'),
         method: 'POST',
-        data: $form.serialize(),
+        data: JSON.stringify(formData),
         success: function(data){
           //todo
           console.log('success');
