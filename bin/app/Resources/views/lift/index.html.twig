@@ -65,12 +65,12 @@
 {% block javascripts %}
   {{ parent() }}
   
-  <script src="{{asset('assets/js/RepLogApp.js')}}"></script>
+  <script src="{{asset('assets/jvs/RepLogApp.js')}}"></script>
   
   <script>
     $(document).ready(function(){
       var $table = $('.js-rep-log-table');
-      var repLogApp = new RepLogApp($table);
+      RepLogApp.initialize($table);
     })  
   </script>
 {% endblock %}
