@@ -4,8 +4,11 @@
     this.$wrapper = $wrapper; 
     this.helper = new Helper(this.$wrapper);
 
-    this.$wrapper.find('.js-delete-rep-log')
-      .on('click', this.handleRepLogDelete.bind(this));
+    this.$wrapper.on(
+      'click',
+      '.js-delete-rep-log',               
+      this.handleRepLogDelete.bind(this)
+    );
     this.$wrapper.find('tbody tr')
       .on('click', this.handleRowClick.bind(this));
     this.$wrapper.find('.js-new-rep-log-form')
