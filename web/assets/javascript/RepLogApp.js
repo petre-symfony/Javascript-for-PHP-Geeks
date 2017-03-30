@@ -1,5 +1,5 @@
 (function(){
-  RepLogApp = {
+  window.RepLogApp = {
     initialize: function($wrapper){
       this.$wrapper = $wrapper; 
       Helper.initialize($wrapper);
