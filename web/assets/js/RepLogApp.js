@@ -19,6 +19,11 @@
       }
       playObject.__proto__.cat = 'meow';
       console.log(playObject.lift, playObject.cat);
+      console.log(
+        'foo'.__proto__,
+        [].__proto__,
+        (new Date()).__proto__
+      );
     },
     updateTotalWeightLifted: function(){
       this.$wrapper.find('.js-total-weight')
