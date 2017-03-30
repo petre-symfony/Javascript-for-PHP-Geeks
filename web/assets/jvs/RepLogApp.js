@@ -6,6 +6,7 @@
       this.helper = new Helper(this.$wrapper);
       console.log(this.helper, Object.keys(this.helper));
       console.log(Helper, Object.keys(Helper));
+      console.log(this.helper.calculateTotalWeight());
 
       this.$wrapper.find('.js-delete-rep-log')
         .on('click', this.handleRepLogDelete.bind(this));
@@ -55,7 +56,7 @@
   Helper.initialize = function($wrapper){
     this.$wrapper = $wrapper;
   };
-  Helper.calculateTotalWeight = function(){
+  Helper.prototype.calculateTotalWeight = function(){
     var totalWeight = 0;
     this.$wrapper.find('tbody tr').each(function(){
       totalWeight += $(this).data('weight');
