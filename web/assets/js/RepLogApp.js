@@ -9,10 +9,16 @@
       '.js-delete-rep-log',               
       this.handleRepLogDelete.bind(this)
     );
-    this.$wrapper.find('tbody tr')
-      .on('click', this.handleRowClick.bind(this));
-    this.$wrapper.find('.js-new-rep-log-form')
-      .on('submit', this.handleNewFormSubmit.bind(this));
+    this.$wrapper.on(
+      'click', 
+      'tbody tr', 
+      this.handleRowClick.bind(this)
+    );
+    this.$wrapper.on(
+      'submit', 
+      '.js-new-rep-log-form', 
+      this.handleNewFormSubmit.bind(this)
+    );
   };
   $.extend(window.RepLogApp.prototype, {  
     updateTotalWeightLifted: function(){
