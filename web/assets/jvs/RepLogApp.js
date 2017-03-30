@@ -4,6 +4,8 @@
     initialize: function($wrapper){
       this.$wrapper = $wrapper; 
       this.helper = new Helper(this.$wrapper);
+      console.log(this.helper, Object.keys(this.helper));
+      console.log(Helper, Object.keys(Helper));
 
       this.$wrapper.find('.js-delete-rep-log')
         .on('click', this.handleRepLogDelete.bind(this));
