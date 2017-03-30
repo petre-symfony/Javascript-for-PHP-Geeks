@@ -4,11 +4,6 @@
     initialize: function($wrapper){
       this.$wrapper = $wrapper; 
       this.helper = new Helper(this.$wrapper);
-      var helper2 = new Helper($('footer'));
-      console.log(
-        this.helper.calculateTotalWeight(),
-        helper2.calculateTotalWeight()
-      );
 
       this.$wrapper.find('.js-delete-rep-log')
         .on('click', this.handleRepLogDelete.bind(this));
