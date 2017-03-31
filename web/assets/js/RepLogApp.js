@@ -70,8 +70,7 @@
           console.log('success');
         },
         error: function(jqXHR){
-          //todo
-          console.log('error');
+          var errorData = JSON.parse(jqXHR.responseText);
         }
       });
     } 
