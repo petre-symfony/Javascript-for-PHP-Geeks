@@ -91,6 +91,13 @@
         self._mapErrorsToForm(errorData.errors); 
       });
     },
+    _saveRepLog: function(data){
+      return $.ajax({
+        url: Routing.generate('rep_log_new'),
+        method: 'POST',
+        data: JSON.stringify(data)
+      })
+    },
     _mapErrorsToForm: function(errorData){
       this._removeFormErrors;
       var $form = this.$wrapper.find(this._selectors.newRepForm);
