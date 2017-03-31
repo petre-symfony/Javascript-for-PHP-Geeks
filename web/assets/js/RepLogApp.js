@@ -70,8 +70,7 @@
         method: 'POST',
         data: JSON.stringify(formData),
         success: function(data){
-          //todo
-          console.log('success');
+          self._clearForm();
         },
         error: function(jqXHR){
           var errorData = JSON.parse(jqXHR.responseText);
@@ -101,6 +100,12 @@
       var $form = this.$wrapper.find(this._selectors.newRepForm);
       $form.find('.js-field-error').remove();
       $form.find('.form-group').removeClass('has-error');  
+    },
+    _clearForm: function(){
+      this._removeFormErrors();
+      
+      var $form = this.$wrapper.find(this._selectors.newRepForm);
+      $form[0].reset();
     }
   });
 
