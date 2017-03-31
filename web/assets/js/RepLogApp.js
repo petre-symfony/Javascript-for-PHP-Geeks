@@ -71,6 +71,7 @@
         data: JSON.stringify(formData),
         success: function(data){
           self._clearForm();
+          self._addRow(data);
         },
         error: function(jqXHR){
           var errorData = JSON.parse(jqXHR.responseText);
@@ -106,6 +107,10 @@
       
       var $form = this.$wrapper.find(this._selectors.newRepForm);
       $form[0].reset();
+    },
+    
+    _addRow: function(repLog){
+      console.log(repLog);  
     }
   });
 
