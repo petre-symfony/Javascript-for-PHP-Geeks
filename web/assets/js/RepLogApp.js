@@ -16,11 +16,14 @@
     );
     this.$wrapper.on(
       'submit', 
-      '.js-new-rep-log-form', 
+      this._selectors.newRepForm, 
       this.handleNewFormSubmit.bind(this)
     );
   };
   $.extend(window.RepLogApp.prototype, {  
+    _selectors: {
+      newRepForm: '.js-new-rep-log-form'
+    },
     updateTotalWeightLifted: function(){
       this.$wrapper.find('.js-total-weight')
         .html(this.helper.calculateTotalWeight());
@@ -77,7 +80,7 @@
       });
     },
     _mapErrorsToForm: function(errorData){
-      console.log(errorData);
+      var $form = this.$wrapper.find(this._selectors.newRepForm);
     }
   });
 
