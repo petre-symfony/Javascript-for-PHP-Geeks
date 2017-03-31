@@ -42,9 +42,7 @@ class LiftController extends BaseController{
     
     return $this->render('lift/index.html.twig', array(
       'form' => $form->createView(),
-      'repLogs' => $repLogs,
       'leaderboard' => $this->getLeaders(),
-      'totalWeight' => $totalWeight,
     ));
   }
 
