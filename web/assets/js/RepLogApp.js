@@ -58,6 +58,7 @@
       
       var $form = $(e.currentTarget);
       var formData = {};
+      var self = this;
       $.each($form.serializeArray(), function(key, fieldData){
         formData[fieldData.name] = fieldData.value;  
       });
@@ -71,9 +72,13 @@
         },
         error: function(jqXHR){
           var errorData = JSON.parse(jqXHR.responseText);
+          self._mapErrorsToForm(errorData.errors);
         }
       });
-    } 
+    },
+    _mapErrorsToForm: function(errorData){
+      console.log(errorData);
+    }
   });
 
   /**
