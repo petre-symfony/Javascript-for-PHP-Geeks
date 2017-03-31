@@ -79,11 +79,8 @@
       $.each($form.serializeArray(), function(key, fieldData){
         formData[fieldData.name] = fieldData.value;  
       });
-      $.ajax({
-        url: $form.data('url'),
-        method: 'POST',
-        data: JSON.stringify(formData),
-      }).then(function(data){
+      this._saveRepLog(formData)
+      .then(function(data){
         self._clearForm();
         self._addRow(data);
       }).catch(function(jqXHR){
