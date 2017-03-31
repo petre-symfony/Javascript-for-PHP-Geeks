@@ -81,6 +81,8 @@
     },
     _mapErrorsToForm: function(errorData){
       var $form = this.$wrapper.find(this._selectors.newRepForm);
+      $form.find('.js-field-error').remove();
+      $form.find('.form-group').removeClass('has-error');
       
       $form.find(':input').each(function(){
         var fieldName = $(this).attr('name');
