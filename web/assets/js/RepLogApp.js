@@ -31,10 +31,12 @@
       $.ajax({
         url: Routing.generate('rep_log_list'),
         success: function(data){
-          $.each(data.items, function(key, repLog){
-            self._addRow(repLog);  
-          });
+          
         }
+      }).done(function(data){
+        $.each(data.items, function(key, repLog){
+          self._addRow(repLog);  
+        }); 
       });  
     },
     updateTotalWeightLifted: function(){
@@ -58,12 +60,11 @@
       $.ajax({
         url: deleteUrl,
         method: 'DELETE',
-        success: function(){
-          $row.fadeOut('normal', function(){
-            $(this).remove();
-            self.updateTotalWeightLifted();
-          });
-        }
+      }).done(function(){
+        $row.fadeOut('normal', function(){
+          $(this).remove();
+          self.updateTotalWeightLifted();
+        });  
       }); 
     },
     handleRowClick: function(){
