@@ -81,6 +81,17 @@
     },
     _mapErrorsToForm: function(errorData){
       var $form = this.$wrapper.find(this._selectors.newRepForm);
+      
+      $form.find(':input').each(function(){
+        var fieldName = $(this).attr('name');
+        var $wrapper = $(this).closest('.form-group');
+        if(!errorData[fieldName]){
+          //no error
+          return;
+        }
+        
+        var $error = $('<span class="js-field-error help-block"></span>');
+      });
     }
   });
 
