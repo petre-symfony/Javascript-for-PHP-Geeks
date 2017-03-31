@@ -114,6 +114,9 @@
       var tpl = _.template(tplText);
       
       var html = tpl(repLog);
+      this.$wrapper.find('tbody')
+        .append($.parseHTML(html));
+      this.updateTotalWeightLifted();
     }
   });
 
