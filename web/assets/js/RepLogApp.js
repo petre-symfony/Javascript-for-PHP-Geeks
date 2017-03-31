@@ -27,10 +27,13 @@
       newRepForm: '.js-new-rep-log-form'
     },
     loadRepLogs: function(){
+      var self = this;
       $.ajax({
         url: Routing.generate('rep_log_list'),
         success: function(data){
-          console.log(data);
+          $.each(data.items, function(key, repLog){
+            self._addRow(repLog);  
+          });
         }
       });  
     },
