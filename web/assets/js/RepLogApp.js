@@ -80,9 +80,8 @@
       });
     },
     _mapErrorsToForm: function(errorData){
+      this._removeFormErrors;
       var $form = this.$wrapper.find(this._selectors.newRepForm);
-      $form.find('.js-field-error').remove();
-      $form.find('.form-group').removeClass('has-error');
       
       $form.find(':input').each(function(){
         var fieldName = $(this).attr('name');
@@ -97,6 +96,11 @@
         $wrapper.append($error);
         $wrapper.addClass('has-error');
       });
+    },
+    _removeFormErrors: function(){
+      var $form = this.$wrapper.find(this._selectors.newRepForm);
+      $form.find('.js-field-error').remove();
+      $form.find('.form-group').removeClass('has-error');  
     }
   });
 
