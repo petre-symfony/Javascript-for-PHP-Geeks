@@ -47,6 +47,22 @@
       e.preventDefault();
 
       var $link = $(e.currentTarget);
+      swal({
+        title: 'Delete this log?',
+        text: 'What? Did you not actually lift this?',
+        showCancelButton: true
+      }).then({
+        function(){
+        },
+        //handling the promise rejection
+        function(dismiss){
+          if (dismiss === 'timer'){
+            console.log('Iwas closed by the timer');  
+          }
+        }
+      })
+    },
+    _deleteRepLog: function($link){
       $link.addClass('text-danger');
       $link
         .find('.fa')
