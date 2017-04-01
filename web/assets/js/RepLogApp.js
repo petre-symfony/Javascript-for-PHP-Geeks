@@ -52,15 +52,11 @@
         title: 'Delete this log?',
         text: 'What? Did you not actually lift this?',
         showCancelButton: true
-      }).then(
-        function(){
+      }).then(function(){
           self._deleteRepLog($link);
-        },
-        //handling the promise rejection
-        function(){
-          console.log('canceled');
-        }
-      )
+      }).catch(function(arg){
+        console.log('canceled', arg)
+      }) 
     },
     _deleteRepLog: function($link){
       $link.addClass('text-danger');
