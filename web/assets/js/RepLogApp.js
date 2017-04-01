@@ -1,5 +1,5 @@
 'use strict';
-(function(window, $, Routing){
+(function(window, $, Routing, swal){
   window.RepLogApp = function($wrapper){
     this.$wrapper = $wrapper; 
     this.helper = new Helper(this.$wrapper);
@@ -165,4 +165,4 @@
     }
   });
   
-})(window, jQuery, Routing);
+})(window, jQuery, Routing, swal);
