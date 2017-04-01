@@ -2,7 +2,7 @@
 
 {% block body %}
   <div class="row">
-    <div class="col-md-7 js-rep-log-table">
+    <div class="col-md-7">
       <h2>
         Lift History
         <a href="#list-stuff-form" class="btn btn-md btn-success pull-right">
@@ -10,7 +10,7 @@
         </a>
       </h2>
 
-      <table class="table table-striped">
+      <table class="table table-striped js-rep-log-table">
         <thead>
         <tr>
           <th>What</th>
@@ -20,24 +20,43 @@
         </tr>
         </thead>
         <tbody>
-        
+        {% for repLog in repLogs %}
+          <tr data-weight="{{ repLog.totalWeightLifted }}">
+            <td>{{ repLog.itemLabel|trans }}</td>
+            <td>{{ repLog.reps }}</td>
+            <td>{{ repLog.totalWeightLifted }}</td>
+            <td>
+              <a href="#" 
+               class="js-delete-rep-log"
+               data-url="{{ path('rep_log_delete', {id: repLog.id})}}"
+              >
+                <span class="fa fa-trash"></span>
+              </a>
+            </td>
+          </tr>
+        {% else %}
+          <tr>
+            <td colspan="4">Get liftin'!</td>
+          </tr>
+        {% endfor %}
         </tbody>
         <tfoot>
           <tr>
             <td>&nbsp;</td>
             <th>Total</th>
-            <th class="js-total-weight"></th>
+            <th class="js-total-weight">{{ totalWeight }}</th>
             <td>&nbsp;</td>
           </tr>
         </tfoot>
       </table>
-      <div class="js-new-rep-log-form-wrapper">
-        {{ include('lift/_form.html.twig') }}
-      </div>
+
+      {{ include('lift/_form.html.twig') }}
+      
     </div>
     <div class="col-md-5">
       <div class="leaderboard">
         <h2 class="text-center"><img class="dumbbell" src="{{ asset('assets/images/dumbbell.png') }}">Leaderboard</h2>
+
         {{ include('lift/_leaderboard.html.twig') }}
       </div>
     </div>
@@ -46,27 +65,12 @@
 {% block javascripts %}
   {{ parent() }}
   
-  <script src="{{asset('assets/js/RepLogApp.js')}}"></script>
+  <script src="{{asset('assets/jvs/RepLogApp.js')}}"></script>
   
   <script>
     $(document).ready(function(){
-      var $wrapper = $('.js-rep-log-table');
-      var repLogApp = new RepLogApp($wrapper);
+      var $table = $('.js-rep-log-table');
+      RepLogApp.initialize($table);
     })  
-  </script>
-  
-  <script type="text/template" id="js-rep-log-row-template">
-    <tr data-weight="<%= totalWeightLifted %>">
-      <td><%= itemLabel %></td>
-      <td><%= reps %></td>
-      <td><%= totalWeightLifted %></td>
-      <td>
-        <a href="#" 
-          class="js-delete-rep-log" 
-          data-url="<%= links._self %>">
-            <span class="fa fa-trash"></span>
-        </a>
-      </td>
-    </tr> 
   </script>
 {% endblock %}

@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class RepLogController extends BaseController{
   /**
-   * @Route("/reps", name="rep_log_list", options={"expose" = true})
+   * @Route("/reps", name="rep_log_list")
    * @Method("GET")
    */
   public function getRepLogsAction(){
@@ -55,7 +55,7 @@ class RepLogController extends BaseController{
   }
 
   /**
-   * @Route("/reps", name="rep_log_new", options={"expose" = true})
+   * @Route("/reps", name="rep_log_new")
    * @Method("POST")
    */
   public function newRepLogAction(Request $request){
