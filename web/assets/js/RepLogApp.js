@@ -47,20 +47,20 @@
       e.preventDefault();
 
       var $link = $(e.currentTarget);
+      var self = this;
       swal({
         title: 'Delete this log?',
         text: 'What? Did you not actually lift this?',
         showCancelButton: true
-      }).then({
+      }).then(
         function(){
+          self._deleteRepLog($link);
         },
         //handling the promise rejection
-        function(dismiss){
-          if (dismiss === 'timer'){
-            console.log('Iwas closed by the timer');  
-          }
+        function(){
+          console.log('canceled');
         }
-      })
+      )
     },
     _deleteRepLog: function($link){
       $link.addClass('text-danger');
