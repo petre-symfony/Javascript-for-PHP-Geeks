@@ -54,8 +54,8 @@
         showCancelButton: true
       }).then(function(){
           self._deleteRepLog($link);
-      }).catch(function(){
-        console.log('canceled')
+      }).catch(function(arg){
+        console.log('canceled', arg)
       }) 
     },
     _deleteRepLog: function($link){
