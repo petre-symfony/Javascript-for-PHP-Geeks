@@ -101,6 +101,8 @@
             //we're finally done
             resolve(data);   
           })  
+        }).catch(function(jqXHR){
+          reject(jqXHR);
         }); 
       });
     },
