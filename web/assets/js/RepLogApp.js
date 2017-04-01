@@ -89,17 +89,19 @@
       });
     },
     _saveRepLog: function(data){
-      return $.ajax({
-        url: Routing.generate('rep_log_new'),
-        method: 'POST',
-        data: JSON.stringify(data)
-      }).then(function(data, textStatus, jqXHR){
+      return new Promise(function(resolve, reject){
         $.ajax({
-          url: jqXHR.getResponseHeader('Location')
-        }).then(function(data){
-          console.log('now we are Really done');
-          console.log(data);
-        })  
+          url: Routing.generate('rep_log_new'),
+          method: 'POST',
+          data: JSON.stringify(data)
+        }).then(function(data, textStatus, jqXHR){
+          $.ajax({
+           url: jqXHR.getResponseHeader('Location')
+          }).then(function(data){
+            //we're finally done
+            resolve(data);   
+          })  
+        }); 
       });
     },
     _mapErrorsToForm: function(errorData){
