@@ -33,7 +33,7 @@
         success: function(data){
           
         }
-      }).done(function(data){
+      }).then(function(data){
         $.each(data.items, function(key, repLog){
           self._addRow(repLog);  
         }); 
@@ -74,7 +74,7 @@
       return $.ajax({
         url: deleteUrl,
         method: 'DELETE',
-      }).done(function(){
+      }).then(function(){
         $row.fadeOut('normal', function(){
           $(this).remove();
           self.updateTotalWeightLifted();
