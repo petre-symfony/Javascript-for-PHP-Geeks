@@ -54,14 +54,8 @@
         showCancelButton: true,
         showLoaderOnConfirm: true,
         preConfirm: function(){
-          return new Promise(function(resolve, reject){
-            setTimeout(function(){
-              resolve();  
-            }, 1000)
-          });
+          return self._deleteRepLog($link);
         }
-      }).then(function(){
-          self._deleteRepLog($link);
       }).catch(function(arg){
         console.log('canceled', arg)
       }) 
@@ -77,7 +71,7 @@
       var deleteUrl = $link.data('url');
       var $row = $link.closest('tr');
       var self = this;
-      $.ajax({
+      return $.ajax({
         url: deleteUrl,
         method: 'DELETE',
       }).done(function(){
