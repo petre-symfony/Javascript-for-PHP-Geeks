@@ -93,7 +93,9 @@
         url: Routing.generate('rep_log_new'),
         method: 'POST',
         data: JSON.stringify(data)
-      })
+      }).then(function(data, testStatus, jqXHR){
+        console.log(jqXHR.getResponseHeader('Location'));
+      });
     },
     _mapErrorsToForm: function(errorData){
       this._removeFormErrors;
